@@ -1,11 +1,17 @@
 class GramsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+ 
+  def grams_params
+    params.require(:grams).permit(:picture)
+  end
+
   def index
+    @grams = Gram.all
   end
 
   def new
-    @gram = Gram.new
+    @grams = Gram.new
   end
 
   def create
