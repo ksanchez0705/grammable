@@ -8,6 +8,7 @@ class GramsController < ApplicationController
   end
 
   def new
+    @gram = Gram.new
   end
 
   def index
@@ -59,7 +60,7 @@ class GramsController < ApplicationController
   private
 
   def gram_params
-    params.require(:gram).permit(:message)
+    params.require(:gram).permit(:message, :picture)
   end
 
 
